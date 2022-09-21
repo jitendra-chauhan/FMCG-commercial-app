@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb-base", "prettier", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "node/no-unpublished-require": [
+      "error",
+      {
+        "allowModules": ["chai"]
+      }
+    ]
+  },
+  "env": {
+    "commonjs": true,
+    "node": true,
+    "mocha": true
+  }
+}
