@@ -57,30 +57,6 @@ const exportObject = {
     withoutReminderUserLoginExpirationHours:
       envVars.JWT_WITHOUT_RE_USER_EXPIRATION_HOURS,
   },
-  email: {
-    accessKey: envVars.SES_ACCESS_KEY,
-    secretKey: envVars.SES_SECRET_KEY,
-  },
-  s3: {
-    bucketName: envVars.S3_BUCKET_NAME,
-    region: envVars.S3_REGION,
-    accessKey: envVars.S3_ACCESS_KEY,
-    secretKey: envVars.S3_SECRET_KEY,
-    basedUrl: envVars.S3_BASE_URL,
-    endpoint: envVars.S3_ENDPOINT,
-  },
-  AWS: {
-    region: envVars.AWS_REGION,
-    apiVersion: envVars.AWS_APIVERSION,
-    accessKeyId: envVars.SES_ACCESS_KEY,
-    secretAccessKey: envVars.SES_SECRET_KEY,
-  },
-  AGORA: {
-    app_id: envVars.AGORA_APP_ID,
-    app_certificate: envVars.AGORA_APP_CERTI,
-    key: envVars.AGORA_KEY,
-    secret: envVars.AGORA_SECRET,
-  },
   SWAGGER_HOST: envVars.SWAGGER_HOST,
   ENV_CONFIG: envVars.ENV_CONFIG,
 };

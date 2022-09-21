@@ -1,6 +1,7 @@
 import http from 'http';
 import express from 'express';
 import config from './config';
+import swaggerConfig from './connection/swagger';
 
 import { errorHandler, notFoundError } from './middlewares/error';
 import {
@@ -10,6 +11,8 @@ import {
 } from './utils/file';
 
 const app = express();
+
+swaggerConfig(app, { basedir: __dirname, filedir: './routes' });
 
 // parse application/x-www-form-urlencoded
 app.use(
