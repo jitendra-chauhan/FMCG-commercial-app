@@ -15,6 +15,8 @@ JWT_WITHOUT_RE_USER_EXPIRATION_HOURS = 10
 SWAGGER_HOST = localhost:3022
 FILES = ts
 
+# swagger URL
+http://localhost:3022/api-documents/
 
 # BackEnd Coding Challenge
 
