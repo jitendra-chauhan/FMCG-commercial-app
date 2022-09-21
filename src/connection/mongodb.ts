@@ -375,11 +375,11 @@ const isValidObjectId = (str) => {
   return pattern.test(str.toString());
 };
 
-let bettingApp = new DB(config.mongoose.master_db);
+let fmcg = new DB(config.mongoose.master_db);
 
 const exportObject = {
   models,
-  bettingApp,
+  fmcg,
   ObjectId,
   isValidObjectId,
   masterDb,

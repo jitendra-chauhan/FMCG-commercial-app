@@ -13,12 +13,9 @@ function sign(payload, option) {
       userId: payload._id,
       email: payload.email,
       type: payload.tokenType,
-      role: payload.agent_level,
+      role: payload.role,
     };
-    if (payload.rand) {
-      sercurData.rand = payload.rand;
-    }
-
+    
     jwt.sign(sercurData, config.jwt.secret, option, (error, token) => {
       resolve({ error, token });
     });
@@ -93,7 +90,7 @@ async function authMiddleware(req, res, next) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Unauthorized1');
   }
   if (authToken.length < 26) {
-    let gettokenFormDb = await mongo.bettingApp
+    let gettokenFormDb = await mongo.fmcg
       .model(mongo.models.tokens)
       .findOne({
         query: { _id: new mongo.ObjectId(authToken) },
@@ -137,9 +134,7 @@ async function authMiddleware(req, res, next) {
     email: decoded.email,
     role: decoded.role,
   };
-  if (decoded.gameId) {
-    req.user.gameId = decoded.gameId;
-  }
+ 
 }
 const resetPasswordVerify = async (payload) => {
   // var { decoded, error }: any = await verify(payload.token, config.jwt.secret);

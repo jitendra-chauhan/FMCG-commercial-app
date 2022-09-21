@@ -23,7 +23,7 @@ const swaggerConfig = (
   const fileList = files
     ? files
     : getAllFilesFromFolder(getFullPath(basedir, filedir)).filter(
-        (e) => getFileExtension(e) == '.js',
+        (e) => getFileExtension(e) == '.js' || getFileExtension(e) == '.ts',
       );
 
   let swaggerDocument = expressSwagger(appOrRouter)({
@@ -47,13 +47,7 @@ const swaggerConfig = (
           in: 'header',
           name: 'Authorization',
           description: '',
-        },
-        GameId: {
-          type: 'apiKey',
-          in: 'header',
-          name: 'gameId',
-          description: '',
-        },
+        }
       },
     },
     basedir: basedir, //app absolute path

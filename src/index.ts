@@ -56,7 +56,8 @@ const files = getAllFilesFromFolder(fullPath)
   .filter((e) => getFileExtension(e) == '.js' || getFileExtension(e) == '.ts');
 files.forEach(async (file) => {
   let routeName = file.replace(
-    file.includes('/index.ts') ? '/index.ts' : '.ts',
+    config.FILES === 'ts' ? 
+    file.includes('/index.ts') ? '/index.ts' : '.ts' : file.includes('/index.js') ? '/index.js' : '.js',
     '',
   );
   app.use(routeName, require(`./routes/${routeName}`));

@@ -14,7 +14,7 @@ async function handler({ user }) {
   const { role } = user;
 
   console.log(role);
-  let userRole = await mongo.bettingApp.model(mongo.models.roles).findOne({
+  let userRole = await mongo.fmcg.model(mongo.models.roles).findOne({
     query: {
       name: role,
     },

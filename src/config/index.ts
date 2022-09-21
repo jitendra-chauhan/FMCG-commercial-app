@@ -59,6 +59,7 @@ const exportObject = {
   },
   SWAGGER_HOST: envVars.SWAGGER_HOST,
   ENV_CONFIG: envVars.ENV_CONFIG,
+  FILES: envVars.FILES,
 };
 
 export = exportObject;
