@@ -45,11 +45,17 @@ router.post('/login', requestHandler(login));
  * API for Admin
  * @route POST /admin/getUserList
  * @group Admin Api [Auth Api]
+ * @param {userList.model} Data.body.required - Admin Singin
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
  */
 
+/**
+ * @typedef userList
+ * @property {number} page - number of currant page - eg: 1
+ * @property {number} limit - number of limit record in one page  - eg: 10
+ */
 router.post('/getUserList', requestHandler(getUserList));
 
 export = router;

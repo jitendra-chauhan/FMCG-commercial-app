@@ -17,3 +17,13 @@ export interface product {
   item: number;
   msg?: string;
 }
+
+export interface order {
+  userId:string;
+  catId:string;
+  brandId:string;
+  productId:string;
+  status:string;
+  price:number;
+  item:number;
+}
