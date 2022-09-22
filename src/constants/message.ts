@@ -12,4 +12,6 @@ export = Object.freeze({
   BRAND_NOT_FOUND: 'brand not found!',
   PRODUCT_NOT_FOUND: 'product not found!',
   OUT_OFF_STOCK: 'out off stock!',
+  ORDER_NOT_FOUND: 'order not found!',
+  
 });
