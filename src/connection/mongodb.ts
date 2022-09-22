@@ -13,6 +13,7 @@ const models = {
   categorys: 'categorys',
   brands: 'brands',
   products: 'products',
+  orders: 'orders',
 };
 
 console.log(config.mongoose);
