@@ -15,7 +15,7 @@ function sign(payload, option) {
       type: payload.tokenType,
       role: payload.role,
     };
-    
+
     jwt.sign(sercurData, config.jwt.secret, option, (error, token) => {
       resolve({ error, token });
     });
@@ -46,9 +46,7 @@ const saveToken = async (token, userId, expires, payload: any) => {
     expires: expires,
     type: payload.tokenType,
   };
-  if (payload.rand) {
-    updateData.rand = payload.rand;
-  }
+
   let tokenDoc;
   if (payload.type == 'access') {
     tokenDoc = await mongo.insertOne({
@@ -90,12 +88,10 @@ async function authMiddleware(req, res, next) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Unauthorized1');
   }
   if (authToken.length < 26) {
-    let gettokenFormDb = await mongo.fmcg
-      .model(mongo.models.tokens)
-      .findOne({
-        query: { _id: new mongo.ObjectId(authToken) },
-        select: { token: 1 },
-      });
+    let gettokenFormDb = await mongo.fmcg.model(mongo.models.tokens).findOne({
+      query: { _id: new mongo.ObjectId(authToken) },
+      select: { token: 1 },
+    });
     authToken = gettokenFormDb.token;
   }
   // var { decoded, error }: any = await verify(authToken, config.jwt.secret);
@@ -134,7 +130,6 @@ async function authMiddleware(req, res, next) {
     email: decoded.email,
     role: decoded.role,
   };
- 
 }
 const resetPasswordVerify = async (payload) => {
   // var { decoded, error }: any = await verify(payload.token, config.jwt.secret);

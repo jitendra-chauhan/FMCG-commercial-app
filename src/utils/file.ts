@@ -14,11 +14,11 @@ function getAllFilesFromFolder(dir: string) {
   return results;
 }
 
-function getFullPath(currentDir, dir) {
+function getFullPath(currentDir: string, dir: string) {
   return path.resolve(currentDir, dir);
 }
 
-function getFileExtension(file) {
+function getFileExtension(file: string) {
   return path.extname(file).toLowerCase();
 }
 

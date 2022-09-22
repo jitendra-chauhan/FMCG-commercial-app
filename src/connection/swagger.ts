@@ -9,10 +9,10 @@ import {
 import config from '../config';
 
 interface swaggerConfigIf {
-  basedir: any;
-  filedir: any;
-  files?: any;
-  url?: any;
+  basedir: string;
+  filedir: string;
+  files?: [string];
+  url?: string;
 }
 
 const swaggerConfig = (
@@ -47,7 +47,7 @@ const swaggerConfig = (
           in: 'header',
           name: 'Authorization',
           description: '',
-        }
+        },
       },
     },
     basedir: basedir, //app absolute path

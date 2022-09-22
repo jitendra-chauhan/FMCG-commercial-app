@@ -1,6 +1,6 @@
 import joi from 'joi';
 
-interface d {
+interface joiResultIf {
   error?: joi.ValidationError;
   warning?: joi.ValidationError | undefined;
   value?: undefined;
@@ -8,7 +8,7 @@ interface d {
 }
 
 function joiValidate(schema, object) {
-  const result: d = joi
+  const result: joiResultIf = joi
     .compile(schema)
     .prefs({ errors: { label: 'key' } })
     .validate(object);

@@ -48,11 +48,11 @@ const handleAPICall = (controller) => async (req, res, next) => {
           req.user.role = req.user.role;
         }
       }
-      if(controller.role && controller.role !== req.user.role)
-      throw new ApiError(
-        httpStatus.BAD_REQUEST,
-        CUSTOM_MESSAGE.YOU_ARE_NOT_AUTHORIZE,
-      );
+      if (controller.role && controller.role.indexOf(req.user.role) === -1)
+        throw new ApiError(
+          httpStatus.BAD_REQUEST,
+          CUSTOM_MESSAGE.YOU_ARE_NOT_AUTHORIZE,
+        );
       req.user = req.user || {};
 
       req.user.requestIP = ip;

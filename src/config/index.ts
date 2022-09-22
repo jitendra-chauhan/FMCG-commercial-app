@@ -1,11 +1,7 @@
 import dotenv from 'dotenv';
-import path from 'path';
 import Joi from 'joi';
 import ApiError from '../utils/ApiError';
 
-// dotenv.config({
-//   path: path.join(__dirname, '../.env'),
-// });
 dotenv.config();
 
 console.log('dotenv', dotenv);
