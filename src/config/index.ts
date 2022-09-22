@@ -3,7 +3,7 @@ import Joi from 'joi';
 import ApiError from '../utils/ApiError';
 
 dotenv.config();
-
+const ext = process.argv[2]
 console.log('dotenv', dotenv);
 const envVarsSchema = Joi.object()
   .keys({
@@ -55,7 +55,7 @@ const exportObject = {
   },
   SWAGGER_HOST: envVars.SWAGGER_HOST,
   ENV_CONFIG: envVars.ENV_CONFIG,
-  FILES: envVars.FILES,
+  FILES: ext,
 };
 
 export = exportObject;
