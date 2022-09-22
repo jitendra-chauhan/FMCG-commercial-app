@@ -31,7 +31,7 @@ async function handler({ body }) {
     throw new ApiError(httpStatus.BAD_REQUEST, CUSTOM_MESSAGE.BRAND_NOT_FOUND);
   }
   const newproductsInfo: product = await mongo.fmcg
-    .model(mongo.models.brands)
+    .model(mongo.models.products)
     .updateOne({
       query,
       update: {

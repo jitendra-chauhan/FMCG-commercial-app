@@ -5,13 +5,13 @@ import ApiError from '../../../utils/ApiError';
 import { CUSTOM_MESSAGE } from '../../../constants';
 
 const payload = {
-  query: joi.object().keys({
+  body: joi.object().keys({
     id: joi.string().required(),
   }),
 };
 
-async function handler({ query }) {
-  const { id } = query;
+async function handler({ body }) {
+  const { id } = body;
 
   const products = await mongo.fmcg.model(mongo.models.products).findOne({
     query: { _id: id },

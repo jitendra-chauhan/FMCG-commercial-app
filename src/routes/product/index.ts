@@ -33,7 +33,7 @@ router.post('/create', requestHandler(create));
  * API for product info
  * @route GET /product/get
  * @group product Api
- * @param {getProduct.model} Data.query.required - get one product
+ * @param {getProduct.model} id.query.required - get one product
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
@@ -57,7 +57,7 @@ router.get('/get', requestHandler(getOne));
 
 /**
  * @typedef listProduct
- * @property {string} filter - filter - eg: 'category', 'name', 'band', 'price'
+ * @property {string} filter - filter - eg: 'category', 'name', 'brand', 'price'
  * @property {string} search - search - hello
  * @property {number} page - page - eg: 1
  * @property {number} limit - number of stock - eg: 10
@@ -89,7 +89,7 @@ router.patch('/update', requestHandler(update));
  * API for product delete
  * @route DELETE /product/delete
  * @group product Api
- * @param {deleteProduct.model} id.body.required - delete one product
+ * @param {deleteProduct.model} Data.body.required - delete one product
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
