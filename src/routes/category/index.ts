@@ -78,7 +78,7 @@ router.patch('/update', requestHandler(update));
  * API for category delete
  * @route DELETE /category/delete
  * @group category Api
- * @param {deleteCategory.model} id.body.required - delete one category
+ * @param {deleteCategory.model} Data.body.required - delete one category
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
