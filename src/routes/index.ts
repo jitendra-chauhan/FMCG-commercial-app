@@ -1,7 +1,7 @@
 import express from 'express';
 import mongo from '../connection/mongodb';
 import login from '../controllers/admin/login';
-import get from '../controllers/get';
+// import get from '../controllers/get';
 import requestHandler from '../middlewares/requestHandler';
 
 const router = express.Router();
@@ -22,5 +22,5 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/login', requestHandler(login));
-router.post('/get', requestHandler(get));
+// router.post('/get', requestHandler(get));
 export = router;
