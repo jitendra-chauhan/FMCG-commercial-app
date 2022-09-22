@@ -8,7 +8,7 @@ export interface sercurDataSign {
   email: string;
   type: string;
   role: string;
-  rand?: string;
+  // rand?: string;
 }
 
 export interface updateData {
@@ -16,5 +16,5 @@ export interface updateData {
   token: string;
   expires: string;
   type: string;
-  rand?: string;
+  // rand?: string;
 }
