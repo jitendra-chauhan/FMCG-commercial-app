@@ -71,7 +71,7 @@ const exportObject = {
   payload,
   handler,
   auth: true,
-  role: ['admin', 'user'],
+  role: ['user'],
 };
 
 export = exportObject;
