@@ -2,6 +2,11 @@ import mongoose from 'mongoose';
 
 const ordersSchema = new mongoose.Schema(
   {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'users',
+      required: true,
+    },
     catId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'categorys',
@@ -19,8 +24,8 @@ const ordersSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: true,
       valid: ['place', 'cancel', 'return', 'completed'],
+      default: 'place',
     },
     price: {
       type: Number,

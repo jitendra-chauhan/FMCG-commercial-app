@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import mongo from '../../../connection/mongodb';
 import ApiError from '../../../utils/ApiError';
 import { CUSTOM_MESSAGE } from '../../../constants';
-import { product } from '../../../Interface/product';
+import { product, brand, category } from '../../../Interface/product';
 
 const payload = {
   body: joi.object().keys({
@@ -18,20 +18,18 @@ const payload = {
 async function handler({ body }) {
   const { catId, brandId, name, price, item } = body;
 
-  const brandInfo: product = await mongo.fmcg
-    .model(mongo.models.brands)
-    .findOne({
-      query: {
-        _id: brandId,
-      },
-      select: { _id: 1 },
-    });
+  const brandInfo: brand = await mongo.fmcg.model(mongo.models.brands).findOne({
+    query: {
+      _id: brandId,
+    },
+    select: { _id: 1 },
+  });
   if (!brandInfo) {
     // Check for above brand data
     throw new ApiError(httpStatus.BAD_REQUEST, CUSTOM_MESSAGE.BRAND_NOT_FOUND);
   }
 
-  let catInfo: product = await mongo.fmcg
+  let catInfo: category = await mongo.fmcg
     .model(mongo.models.categorys)
     .findOne({
       query: {
@@ -46,7 +44,7 @@ async function handler({ body }) {
       CUSTOM_MESSAGE.CATEGORY_NOT_FOUND,
     );
   }
-  let newBrand: product = await mongo.fmcg
+  let newProduct: product = await mongo.fmcg
     .model(mongo.models.products)
     .insertOne({
       // Insert new record
@@ -59,8 +57,8 @@ async function handler({ body }) {
       },
     });
 
-  newBrand.msg = 'create product successfully.';
-  return newBrand; // Return response
+  newProduct.msg = 'create product successfully.';
+  return newProduct; // Return response
 }
 
 const exportObject = {
