@@ -5,6 +5,7 @@ import ApiError from '../../utils/ApiError';
 import auth from '../../utils/auth';
 import config from '../../config';
 import { CUSTOM_MESSAGE } from '../../constants';
+import { adminUserIf } from '../../Interface/admin';
 
 const payload = {
   body: joi.object().keys({
@@ -13,15 +14,22 @@ const payload = {
   }),
 };
 
-async function handler({ body, user }) {
-  let { email, password } = body;
+interface login {
+  email: string;
+  password: string;
+}
 
-  let userInfo = await mongo.fmcg.model(mongo.models.admins).findOne({
-    // Find admin data
-    query: {
-      email,
-    },
-  });
+async function handler({ body }) {
+  let { email, password }: login = body;
+
+  let userInfo: adminUserIf = await mongo.fmcg
+    .model(mongo.models.admins)
+    .findOne({
+      // Find admin data
+      query: {
+        email,
+      },
+    });
   if (!userInfo) {
     // Check for above admin data
     throw new ApiError(httpStatus.BAD_REQUEST, CUSTOM_MESSAGE.USER_NOT_FOUND);

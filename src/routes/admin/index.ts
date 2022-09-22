@@ -3,7 +3,7 @@ import express from 'express';
 import requestHandler from '../../middlewares/requestHandler';
 import register from '../../controllers/admin/register';
 import login from '../../controllers/admin/login';
-import getInfo from '../../controllers/admin/getList';
+import getUserList from '../../controllers/admin/getUserList';
 
 const router = express.Router();
 
@@ -39,17 +39,17 @@ router.post('/register', requestHandler(register));
  * @property {string} email - email - eg: test@xyz.com
  * @property {string} password - password - eg: 12345678
  */
- router.post('/login', requestHandler(login));
+router.post('/login', requestHandler(login));
 
- /**
+/**
  * API for Admin
- * @route POST /admin/getInfo
+ * @route POST /admin/getUserList
  * @group Admin Api [Auth Api]
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
  */
 
- router.post('/getInfo', requestHandler(getInfo));
+router.post('/getUserList', requestHandler(getUserList));
 
 export = router;
