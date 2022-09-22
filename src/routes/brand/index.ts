@@ -78,7 +78,7 @@ router.patch('/update', requestHandler(update));
  * API for brand delete
  * @route DELETE /brand/delete
  * @group brand Api
- * @param {deleteBrand.model} id.body.required - delete one brand
+ * @param {deleteBrand.model} Data.body.required - delete one brand
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
