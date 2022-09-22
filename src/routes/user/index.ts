@@ -1,9 +1,9 @@
 import express from 'express';
 
 import requestHandler from '../../middlewares/requestHandler';
-import register from '../../controllers/admin/register';
-import login from '../../controllers/admin/login';
-import getInfo from '../../controllers/admin/getUserList';
+import register from '../../controllers/user/register';
+import login from '../../controllers/user/login';
+import getInfo from '../../controllers/user/info';
 
 const router = express.Router();
 
@@ -43,13 +43,13 @@ router.post('/login', requestHandler(login));
 
 /**
  * API for user
- * @route POST /user/getInfo
+ * @route GET /user/getInfo
  * @group user Api [Auth Api]
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
  */
 
-router.post('/getInfo', requestHandler(getInfo));
+router.get('/getInfo', requestHandler(getInfo));
 
 export = router;
