@@ -1,5 +1,15 @@
 # webelightFMCG
 
+# swagger URL
+http://localhost:3022/api-documents/
+
+# start typeScript server
+npm start
+
+# start build javaScript server
+npm run build
+npm run startBuild
+
 # .env
 
 NODE_ENV=development
@@ -13,10 +23,6 @@ JWT_SECRET = dummy
 JWT_WITH_RE_USER_EXPIRATION_HOURS = 10 
 JWT_WITHOUT_RE_USER_EXPIRATION_HOURS = 10 
 SWAGGER_HOST = localhost:3022
-FILES = ts
-
-# swagger URL
-http://localhost:3022/api-documents/
 
 # BackEnd Coding Challenge
 
