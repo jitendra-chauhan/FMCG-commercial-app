@@ -9,15 +9,10 @@ let model: any;
 const models = {
   admins: 'admins',
   tokens: 'tokens',
-  // users: 'users',
-  // dashboardImages: 'dashboardImages',
-  roles: 'roles',
-  // betsHistory: 'betsHistory',
-  // sports: 'sports',
-  // statements: 'statements',
-  // activities: 'activities',
-  // websites: 'websites',
-  // stacks: 'stacks',
+  users: 'users',
+  categorys: 'categorys',
+  brands: 'brands',
+  products: 'products',
 };
 
 console.log(config.mongoose);

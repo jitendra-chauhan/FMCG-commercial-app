@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: true,
+      default: '',
     },
     password: {
       type: String,
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      default: 'admin',
+      default: 'user',
     },
   },
   {
