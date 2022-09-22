@@ -8,12 +8,12 @@ import { brand } from '../../../Interface/product';
 const payload = {
   body: joi.object().keys({
     id: joi.string().required(),
-    catName: joi.string().required(),
+    brandName: joi.string().required(),
   }),
 };
 
 async function handler({ body }) {
-  const { id, catName } = body;
+  const { id, brandName } = body;
 
   const query = {
     _id: id,
@@ -29,7 +29,7 @@ async function handler({ body }) {
     .updateOne({
       query,
       update: {
-        catName,
+        brandName,
       },
     });
 

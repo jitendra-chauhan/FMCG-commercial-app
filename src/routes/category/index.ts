@@ -9,7 +9,7 @@ import deleteItem from '../../controllers/admin/category/delete';
 const router = express.Router();
 
 /**
- * API for category
+ * API for category create
  * @route POST /category/create
  * @group category Api
  * @param {createCategory.model} Data.body.required - category create
@@ -25,10 +25,10 @@ const router = express.Router();
 router.post('/create', requestHandler(create));
 
 /**
- * API for category
- * @route POST /category/get
+ * API for category info
+ * @route GET /category/get
  * @group category Api
- * @param {getCategory.model} Data.query.required - get one category
+ * @param {getCategory.model} id.query.required - get one category
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
@@ -58,8 +58,8 @@ router.get('/get', requestHandler(getOne));
 router.post('/list', requestHandler(list));
 
 /**
- * API for category
- * @route POST /category/update
+ * API for category update
+ * @route PATCH /category/update
  * @group category Api
  * @param {updateCategory.model} Data.body.required - category update
  * @returns {object} 200 - Successful
@@ -75,10 +75,10 @@ router.post('/list', requestHandler(list));
 router.patch('/update', requestHandler(update));
 
 /**
- * API for category
- * @route POST /category/delete
+ * API for category delete
+ * @route DELETE /category/delete
  * @group category Api
- * @param {deleteCategory.model} Data.query.required - delete one category
+ * @param {deleteCategory.model} id.body.required - delete one category
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT

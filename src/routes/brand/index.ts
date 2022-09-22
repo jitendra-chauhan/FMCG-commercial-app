@@ -9,7 +9,7 @@ import deleteItem from '../../controllers/admin/brand/delete';
 const router = express.Router();
 
 /**
- * API for brand
+ * API for brand create
  * @route POST /brand/create
  * @group brand Api
  * @param {createBrand.model} Data.body.required - brand create
@@ -25,10 +25,10 @@ const router = express.Router();
 router.post('/create', requestHandler(create));
 
 /**
- * API for brand
- * @route POST /brand/get
+ * API for get brand Info
+ * @route GET /brand/get
  * @group brand Api
- * @param {getBrand.model} Data.query.required - get one brand
+ * @param {getBrand.model} id.query.required - get one brand
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
@@ -41,7 +41,7 @@ router.post('/create', requestHandler(create));
 router.get('/get', requestHandler(getOne));
 
 /**
- * API for brand
+ * API for brand list
  * @route POST /brand/list
  * @group brand Api
  * @param {listBrand.model} Data.body.required - brand list
@@ -58,8 +58,8 @@ router.get('/get', requestHandler(getOne));
 router.post('/list', requestHandler(list));
 
 /**
- * API for brand
- * @route POST /brand/update
+ * API for brand update
+ * @route PATCH /brand/update
  * @group brand Api
  * @param {updateBrand.model} Data.body.required - brand update
  * @returns {object} 200 - Successful
@@ -75,10 +75,10 @@ router.post('/list', requestHandler(list));
 router.patch('/update', requestHandler(update));
 
 /**
- * API for brand
- * @route POST /brand/delete
+ * API for brand delete
+ * @route DELETE /brand/delete
  * @group brand Api
- * @param {deleteBrand.model} Data.query.required - delete one brand
+ * @param {deleteBrand.model} id.body.required - delete one brand
  * @returns {object} 200 - Successful
  * @returns {Error}  default - Unexpected error
  * @security JWT
